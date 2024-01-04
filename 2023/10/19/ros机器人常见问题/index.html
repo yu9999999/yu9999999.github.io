@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ros2机器人常见问题以及一些使用方法 | 小鱼</title><meta name="author" content="小鱼"><meta name="copyright" content="小鱼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="问题  1. ros2build出错：SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other… 办法：该问题为版本问题，将python版本降低为58.2.0即可 $ sudo pip install -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ros2机器人常见问题以及一些使用方法">
+<meta property="og:url" content="http://uai86.cn/2023/10/19/ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="小鱼">
+<meta property="og:description" content="问题  1. ros2build出错：SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other… 办法：该问题为版本问题，将python版本降低为58.2.0即可 $ sudo pip install -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://uai86.cn/images/logo.jpg">
+<meta property="article:published_time" content="2023-10-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-29T03:38:16.376Z">
+<meta property="article:author" content="小鱼">
+<meta property="article:tag" content="ROS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://uai86.cn/images/logo.jpg"><link rel="shortcut icon" href="/images/fav.jpg"><link rel="canonical" href="http://uai86.cn/2023/10/19/ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ros2机器人常见问题以及一些使用方法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-11-29 11:38:16'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: #bbcdc5"><nav id="nav"><span id="blog-info"><a href="/" title="小鱼"><span class="site-name">小鱼</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ros2机器人常见问题以及一些使用方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-18T16:00:00.000Z" title="发表于 2023-10-19 00:00:00">2023-10-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-29T03:38:16.376Z" title="更新于 2023-11-29 11:38:16">2023-11-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ROS%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">ROS与机器人相关问题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ros2机器人常见问题以及一些使用方法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout hide-aside" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h1>
+<h2 id="1-ros2build出错setuptoolsdeprecationwarning-setuppy-install-is-deprecated-use-build-and-pip-and-other"><a class="markdownIt-Anchor" href="#1-ros2build出错setuptoolsdeprecationwarning-setuppy-install-is-deprecated-use-build-and-pip-and-other"></a> 1. ros2build出错：SetuptoolsDeprecationWarning: <a target="_blank" rel="noopener" href="http://setup.py">setup.py</a> install is deprecated. Use build and pip and other…</h2>
+<p>办法：该问题为版本问题，将python版本降低为58.2.0即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple setuptools==58.2.0 --upgrade</span><br></pre></td></tr></table></figure>
+<p>备注：可以通过以下命令查看python3版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ python3</span><br><span class="line">$ import setuptools</span><br><span class="line">$ <span class="built_in">print</span>(setuptools.__version__)</span><br></pre></td></tr></table></figure>
+<h2 id="2-cmake-error-the-source-directory-文件位置-does-not-exist"><a class="markdownIt-Anchor" href="#2-cmake-error-the-source-directory-文件位置-does-not-exist"></a> 2. CMake Error: The source directory “文件位置” does not exist.</h2>
+<p>因为前面编译了该文件，后来将其删除后，没有将build中的记录删除，删除即可</p>
+<h2 id="3-no-such-file-or-directory"><a class="markdownIt-Anchor" href="#3-no-such-file-or-directory"></a> 3. No such file or directory</h2>
+<p>缺少该文件，否则查看文件名字可能与库不一致，仔细检查</p>
+<h2 id="4-rosdepc-update失败"><a class="markdownIt-Anchor" href="#4-rosdepc-update失败"></a> 4. rosdepc update失败</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rosdepc init</span><br><span class="line">$ rosdepc update</span><br></pre></td></tr></table></figure>
+<h1 id="使用方法"><a class="markdownIt-Anchor" href="#使用方法"></a> 使用方法</h1>
+<h2 id="1-依赖问题可以使用rosdepc进行依赖的安装然后对依赖中的版本进行无视鱼香ros真的很好用"><a class="markdownIt-Anchor" href="#1-依赖问题可以使用rosdepc进行依赖的安装然后对依赖中的版本进行无视鱼香ros真的很好用"></a> 1. 依赖问题：可以使用rosdepc进行依赖的安装，然后对依赖中的版本进行无视（鱼香ros真的很好用）</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget http://fishros.com/install -O fishros &amp;&amp; . fishros</span><br><span class="line">$ rosdepc install -r --from-paths src --ignore-src --rosdistro <span class="variable">$ROS_DISTRO</span> -y</span><br></pre></td></tr></table></figure>
+<h2 id="2-切换teb算法"><a class="markdownIt-Anchor" href="#2-切换teb算法"></a> 2. 切换teb算法</h2>
+<p>首先下载源码：可以下载压缩文件，也可以git。teb有的需要costmap_converter文件，所以都下载<br />
+然后安装依赖：<code>rosdep install -i --from-path src --rosdistro galactic -y</code>（用什么版本就换什么，比如这里用galactic）<br />
+最后修改yaml文件替换dwb插件，编译，测试</p>
+<h2 id="3-ros2自定义msg"><a class="markdownIt-Anchor" href="#3-ros2自定义msg"></a> 3. ros2自定义msg</h2>
+<p>(1)创建msg文件,修改cmake，修改package<br />
+(2)订阅话题，可以直接将话题数据拿去用，也可以赋值给私有变量x，x再拿去做运算</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public:</span><br><span class="line">  example_subscribe_ = create_subscription&lt;xxx::msg::Example&gt;(<span class="string">&quot;example&quot;</span>, 10, std::<span class="built_in">bind</span>(&amp;类名::examplesubscribecallback, this, std::placeholders::_1));</span><br><span class="line">private:</span><br><span class="line">  double x;</span><br><span class="line">  rclcpp::Subscription&lt;nav2_msgs::msg::Person&gt;::SharedPtr example_subscribe_;</span><br><span class="line">  void examplebscribecallback(const xxx::msg::Example::SharedPtr msg)</span><br><span class="line">  &#123;</span><br><span class="line">    x=msg-&gt;x;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>注意：头文件：#include “xxx/msg/example.hpp”，必须小写，如果是ExampleExample这种命名的，头文件#include &quot;xxx/msg/example_example.hpp&quot;这么写</p>
+<h2 id="4-ros2手动发布目标点"><a class="markdownIt-Anchor" href="#4-ros2手动发布目标点"></a> 4. ros2手动发布目标点</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ros2 action send_goal /navigate_to_pose nav2_msgs/action/NavigateToPose <span class="string">&quot;&#123;pose: &#123;header: &#123;frame_id: &#x27;map&#x27;&#125;,pose: &#123;position: &#123;x: 0.0,y: 0.0&#125;,orientation: &#123;w: 1.0&#125;&#125;&#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-rqt中话题使用"><a class="markdownIt-Anchor" href="#5-rqt中话题使用"></a> 5. rqt中话题使用</h2>
+<p>rqt-&gt;plugins-&gt;topic-&gt;message publisher-&gt;选择所需话题和消息类型-&gt;右上角点击+号-&gt;勾选</p>
+<h2 id="6-搭建ros仿真环境"><a class="markdownIt-Anchor" href="#6-搭建ros仿真环境"></a> 6. 搭建ros仿真环境</h2>
+<p>（1）gazebo-&gt;Edit-&gt;Building Editor-&gt;绘制好墙-&gt;保存-&gt;退出-&gt;添加物品-&gt;保存至world文件夹<br />
+（2）修改gazebo的launch文件中的新建图world名字-&gt;启动gazebo的launch-&gt;启动cartographer的launch，-&gt;启动遥控<code>ros2 run teleop_twist_keyboard teleop_twist_keyboard</code> -&gt;走完先暂停再地图后保存地图<br />
+（3）保存地图前安装<code>sudo apt install ros-humble-nav2-map-server</code>-&gt;再保存地图:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> src/cartographer目录/ &amp;&amp; <span class="built_in">mkdir</span> map &amp;&amp; <span class="built_in">cd</span> map（如果有这个目录直接进入该目录，然后运行下面的程序）</span><br><span class="line">$ ros2 run nav2_map_server map_saver_cli -t map -f 文件名</span><br></pre></td></tr></table></figure>
+<h2 id="7-写一个定时器通过计算时间戳去计算时间间隔"><a class="markdownIt-Anchor" href="#7-写一个定时器通过计算时间戳去计算时间间隔"></a> 7. 写一个定时器，通过计算时间戳去计算时间间隔</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rclcpp::Clock steady_clock_&#123;RCL_STEADY_TIME&#125;;</span><br><span class="line">start_time_= steady_clock_.now();   //当前时间戳</span><br><span class="line">time = steady_clock_.now().seconds() - start_time_.seconds();    //当前时间与start_time_之间的时间间隔</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://uai86.cn">小鱼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://uai86.cn/2023/10/19/ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">http://uai86.cn/2023/10/19/ros机器人常见问题/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://uai86.cn" target="_blank">小鱼</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ROS/">ROS</a></div><div class="post_share"><div class="social-share" data-image="/images/logo.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/19/MYSQL%E7%AC%94%E8%AE%B0/" title="MYSQL笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MYSQL笔记</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/19/%E5%85%A8%E5%B1%80%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/" title="全局路径规划算法源码理解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">全局路径规划算法源码理解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/11/29/Teb%E5%8E%9F%E7%90%86%E4%B8%8E%E6%BA%90%E7%A0%81/" title="Teb原理与源码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-29</div><div class="title">Teb原理与源码</div></div></a></div><div><a href="/2023/10/31/dwa%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3/" title="dwa算法的理解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-31</div><div class="title">dwa算法的理解</div></div></a></div></div></div></div></main><footer id="footer" style="background: #bbcdc5"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 小鱼</div><div class="framework-info"><span>Frame- </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme- </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

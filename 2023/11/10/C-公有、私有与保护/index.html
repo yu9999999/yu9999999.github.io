@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++ | 小鱼</title><meta name="author" content="小鱼"><meta name="copyright" content="小鱼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="类： 由数据成员（属性）和成员函数（方法）组成。数据成员是描述类的属性的一些数据，成员函数是描述类的行为的一些数据。比如人类，每个人都有自己的姓名、年龄、出生日期、体重等, 为人类的属性部分, 此外, 人能够吃饭、睡觉、行走、说话等属于人类所具有的行为。 类的访问权限： 公有（public）、私有（private）和保护（protected），能不能访问直白的说就是，你可不可以去使用类中成员（某个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++">
+<meta property="og:url" content="http://uai86.cn/2023/11/10/C-%E5%85%AC%E6%9C%89%E3%80%81%E7%A7%81%E6%9C%89%E4%B8%8E%E4%BF%9D%E6%8A%A4/index.html">
+<meta property="og:site_name" content="小鱼">
+<meta property="og:description" content="类： 由数据成员（属性）和成员函数（方法）组成。数据成员是描述类的属性的一些数据，成员函数是描述类的行为的一些数据。比如人类，每个人都有自己的姓名、年龄、出生日期、体重等, 为人类的属性部分, 此外, 人能够吃饭、睡觉、行走、说话等属于人类所具有的行为。 类的访问权限： 公有（public）、私有（private）和保护（protected），能不能访问直白的说就是，你可不可以去使用类中成员（某个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://uai86.cn/images/logo.jpg">
+<meta property="article:published_time" content="2023-11-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-04T04:17:25.065Z">
+<meta property="article:author" content="小鱼">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://uai86.cn/images/logo.jpg"><link rel="shortcut icon" href="/images/fav.jpg"><link rel="canonical" href="http://uai86.cn/2023/11/10/C-%E5%85%AC%E6%9C%89%E3%80%81%E7%A7%81%E6%9C%89%E4%B8%8E%E4%BF%9D%E6%8A%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-04 12:17:25'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: #bbcdc5"><nav id="nav"><span id="blog-info"><a href="/" title="小鱼"><span class="site-name">小鱼</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-09T16:00:00.000Z" title="发表于 2023-11-10 00:00:00">2023-11-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-04T04:17:25.065Z" title="更新于 2024-01-04 12:17:25">2024-01-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout hide-aside" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>类：</strong> 由数据成员（属性）和成员函数（方法）组成。数据成员是描述类的属性的一些数据，成员函数是描述类的行为的一些数据。比如人类，每个人都有自己的姓名、年龄、出生日期、体重等, 为人类的属性部分, 此外, 人能够吃饭、睡觉、行走、说话等属于人类所具有的行为。<br />
+<strong>类的访问权限：</strong> 公有（public）、私有（private）和保护（protected），能不能访问直白的说就是，你可不可以去使用类中成员（某个函数或者数据）<br />
+<strong>公有成员：</strong> 类内和类外都可访问。<br />
+<strong>私有成员：</strong> 类内可访问（个人认为只能被本类中的成员函数访问），类外不可访问。友元可访问。<br />
+<strong>保护成员：</strong> 类内可访问，类外不可访问。友元可访问。但是派生类可以访问（派生类可以当作类外的一种特殊形式，不在类内但是与该类有关联）。<br />
+<strong>友元：</strong> 友元可以是一个函数，该函数称为友元函数。友元也可以是一个类，该类被称为友元类。比如在A类里声明一个友元函数B或者友元类B，那么该函数B或者类B就可以访问类A里面的所有成员）<br />
+<strong>继承：</strong> 当创建一个类时，不需要重新编写新的数据成员和成员函数，只需指定新建的类继承了一个已有的类的成员即可。这个已有的类称为基类（父类），新建的类称为派生类（子类）。例如：哺乳动物是动物，狗是哺乳动物，因此，狗是动物。狗是哺乳动物的派生类，动物是哺乳动物的基类。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">访问</th>
+<th style="text-align:center">public</th>
+<th style="text-align:center">protected</th>
+<th style="text-align:center">private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">同一个类</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">派生类</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">外部的类</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">no</td>
+</tr>
+</tbody>
+</table>
+<p>举个例子：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class A         </span><br><span class="line">&#123;</span><br><span class="line">    friend class B;</span><br><span class="line">public: </span><br><span class="line">    void <span class="function"><span class="title">print</span></span>() &#123;cout&lt;&lt; <span class="string">x &lt;&lt;endl;&#125;</span></span><br><span class="line"><span class="string">protected:</span></span><br><span class="line"><span class="string">    int y;</span></span><br><span class="line"><span class="string">    int getnum(int i) &#123;</span></span><br><span class="line"><span class="string">        x</span> += i; </span><br><span class="line">        <span class="built_in">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">private: </span><br><span class="line">    int x; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B         </span><br><span class="line">&#123;</span><br><span class="line">public: </span><br><span class="line">    void <span class="built_in">set</span>(int i)&#123;a.x = i;&#125;    //友元访问私有</span><br><span class="line">    void <span class="function"><span class="title">getnum</span></span>()&#123;a.getnum(2);&#125;  //友元访问保护</span><br><span class="line">    void <span class="function"><span class="title">print</span></span>()&#123;a.print();&#125;    //访问公有</span><br><span class="line">protected: </span><br><span class="line">    //这里只能由B类的成员访问，除非B作为其余类的基类，或者友元</span><br><span class="line">private: </span><br><span class="line">    A a;   //这里由于B为A的友元，所以可以访问A类所有成员。</span><br><span class="line">    int z;  //只能由B类的成员访问，除非B作为友元在其他类声明</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class C : public A</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    void <span class="function"><span class="title">func</span></span>()&#123;y = 6;&#125;      //继承访问保护</span><br><span class="line">    //void <span class="function"><span class="title">func1</span></span>()&#123;x = 2;&#125;    //这是不可以的，继承不能访问私有</span><br><span class="line">protected: </span><br><span class="line">    //这里只能由C类的成员访问，除非C作为其余类的基类，或者友元</span><br><span class="line">private: </span><br><span class="line">    int m;  //只能由C类的成员访问，除非B作为友元在其他类声明</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">main</span></span>() </span><br><span class="line">&#123; </span><br><span class="line">    B b;</span><br><span class="line">    b.set(5);     //在类外访问公有函数<span class="built_in">set</span>，其余的公有函数都可以访问，注意这里是类外，不能访问保护和私有</span><br><span class="line">    b.getnum();   </span><br><span class="line">    b.print();  </span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>指针的理解：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">void <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    int a = 10; </span><br><span class="line">    int *b ;</span><br><span class="line">    b = &amp;a;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a的地址：&quot;</span> &lt;&lt; &amp;a &lt;&lt; <span class="string">&quot; a的值：&quot;</span> &lt;&lt; <span class="string">a &lt;&lt; endl</span></span><br><span class="line"><span class="string">    &lt;&lt; &quot;指针b的值：&quot; &lt;&lt; b &lt;&lt; &quot; 指针b解地址：&quot; &lt;&lt; *b &lt;&lt; endl</span></span><br><span class="line"><span class="string">    &lt;&lt; &quot; 指针b的地址：&quot; &lt;&lt; &amp;b &lt;&lt; endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//我的电脑输出：</span></span><br><span class="line"><span class="string">a</span>的地址：0000001688BFFBD4    a的值：10</span><br><span class="line">b的值：0000001688BFFBD4  指针b的解地址：10</span><br><span class="line">指针b的地址：0000001688BFFBF8</span><br><span class="line">//这样解释很明显了吧，</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://uai86.cn">小鱼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://uai86.cn/2023/11/10/C-%E5%85%AC%E6%9C%89%E3%80%81%E7%A7%81%E6%9C%89%E4%B8%8E%E4%BF%9D%E6%8A%A4/">http://uai86.cn/2023/11/10/C-公有、私有与保护/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://uai86.cn" target="_blank">小鱼</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="/images/logo.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/29/Teb%E5%8E%9F%E7%90%86%E4%B8%8E%E6%BA%90%E7%A0%81/" title="Teb原理与源码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Teb原理与源码</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%90%86%E8%A7%A3/" title="数据结构与算法的理解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据结构与算法的理解</div></div></a></div></nav></div></main><footer id="footer" style="background: #bbcdc5"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 小鱼</div><div class="framework-info"><span>Frame- </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme- </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
